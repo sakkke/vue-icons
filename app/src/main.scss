@@ -1,0 +1,14 @@
+$input-btn-focus-box-shadow: none;
+$input-btn-focus-width: 0;
+
+$link-decoration: none;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+@import "bootstrap/scss/bootstrap.scss";

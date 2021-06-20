@@ -1,0 +1,8 @@
+# Ignore generated icons
+packages/*/src
+
+# Dependency directories
+node_modules/
+
+# Build
+dist
