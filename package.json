@@ -9,6 +9,7 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "build": "yarn workspaces run build",
     "dev": "yarn --cwd app dev",
     "format": "prettier --write **/*.{js,ts,vue,md,yml,scss}",
     "lint": "eslint --ext .js,.ts,.vue ."
