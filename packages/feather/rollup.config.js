@@ -27,7 +27,7 @@ export default defineConfig({
   input: "src/index.ts",
   external: ["vue"],
   output: [
-    { ...output, file: pkg.main, format: "umd" },
-    { ...output, file: pkg.module, format: "es" }
+    { ...output, file: pkg.exports["."].require, format: "umd" },
+    { ...output, file: pkg.exports["."].import, format: "es" }
   ]
 })
