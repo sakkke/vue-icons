@@ -1,7 +1,5 @@
 import { defineComponent, computed, h } from "vue"
 
-const data = "%%icon%%"
-
 export default defineComponent({
   name: "%%name%%",
   props: {
@@ -13,6 +11,8 @@ export default defineComponent({
   setup(props, context) {
     const width = computed(() => context.attrs.width || props.size)
     const height = computed(() => context.attrs.height || props.size)
+
+    const data = "%%icon%%"
 
     return () =>
       h("svg", {

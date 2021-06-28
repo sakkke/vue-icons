@@ -5,11 +5,11 @@ import { upperFirst, camelCase } from "lodash"
 import fs from "fs-extra"
 
 const input = "templates"
-const output = "src"
+const output = "lib"
 
-const iconBlob = fs.readFileSync(join(input, "icon.ts"), "utf8")
-const indexBlob = fs.readFileSync(join(input, "index.ts"), "utf8")
-const typesBlob = fs.readFileSync(join(input, "types.d.ts"), "utf8")
+const iconBlob = fs.readFileSync(join(input, "icon.js"), "utf8")
+const indexBlob = fs.readFileSync(join(input, "index.js"), "utf8")
+const typesBlob = fs.readFileSync(join(input, "index.d.ts"), "utf8")
 
 const templates = {
   icon: (name: string, icon: Record<string, unknown>) => {
@@ -52,17 +52,17 @@ const main = async () => {
     types.push(`export const ${icon.name}: Icon`)
 
     const blob = templates.icon(icon.name, feather.icons[icon.slug])
-    const path = join(output, `${icon.name}.ts`)
+    const path = join(output, `${icon.name}.js`)
 
     await fs.ensureDir(dirname(path))
     await fs.writeFile(path, format(blob), "utf8")
   })
 
   const indexBlob = format(templates.index(index.join("\n")))
-  await fs.outputFile(join(output, `index.ts`), indexBlob, "utf8")
+  await fs.outputFile(join(output, "index.js"), indexBlob, "utf8")
 
   const typesBlob = format(templates.types(types.join("\n")))
-  await fs.outputFile(join(output, `types.d.ts`), typesBlob, "utf8")
+  await fs.outputFile(join(output, "index.d.ts"), typesBlob, "utf8")
 }
 
 try {

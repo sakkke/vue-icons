@@ -11,19 +11,22 @@
   "bugs": {
     "url": "https://github.com/vue-icons/vue-icons/issues"
   },
-  "sideEffects": false,
   "files": [
-    "dist"
+    "dist/*",
+    "lib/*"
   ],
-  "main": "./dist/feather.umd.js",
-  "module": "./dist/feather.es.js",
-  "types": "./dist/types.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/feather.es.js",
+      "import": "./dist/feather.esm.js",
       "require": "./dist/feather.umd.js"
+    },
+    "./*": {
+      "import": "./lib/*.js",
+      "require": "./lib/*.js"
     }
   },
+  "types": "./lib/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "prepare": "yarn build",
     "prebuild": "ts-node -O '{\"module\": \"commonjs\"}' build.ts",
