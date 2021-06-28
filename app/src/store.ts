@@ -6,7 +6,6 @@ export interface State {
 
   customize: {
     size: number
-    strokeWidth: number
     color: string
   }
 }
@@ -32,9 +31,6 @@ export const store = createStore<State>({
     },
     setCustomizeSize: (state, value: number) => {
       state.customize.size = value
-    },
-    setCustomizeStrokeWidth: (state, value: number) => {
-      state.customize.strokeWidth = value
     },
     setCustomizeColor: (state, value: string) => {
       state.customize.color = value

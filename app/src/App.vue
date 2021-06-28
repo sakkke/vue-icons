@@ -60,7 +60,7 @@
           :is="icon"
           :size="customize.size"
           :stroke="customize.color"
-          :stroke-width="customize.strokeWidth"
+          :fill="customize.color"
           class="m-2"
         />
         <small>{{ icon.name }}</small>
@@ -72,7 +72,10 @@
 <script lang="ts">
 import { computed, defineComponent, ref } from "vue"
 import copyToClipboard from "copy-to-clipboard"
-import * as feather from "@vue-icons/feather"
+import { Icon } from "@vue-icons/feather"
+import * as octicons from "@vue-icons/octicons"
+
+const allIcons = Object.values(octicons)
 
 import Navigation from "./components/Navigation.vue"
 import Customize from "./components/Customize.vue"
@@ -83,7 +86,7 @@ export default defineComponent({
   components: {
     Navigation,
     Customize,
-    ...feather
+    ...octicons
   },
   setup() {
     const store = useStore()
@@ -100,14 +103,14 @@ export default defineComponent({
     })
 
     const icons = computed(() => {
-      if (search.value == "") return Object.values(feather)
+      if (search.value == "") return allIcons
       const searchValue = search.value.toLowerCase()
-      return Object.values(feather).filter((icon) =>
+      return allIcons.filter((icon) =>
         icon.name.toLowerCase().includes(searchValue)
       )
     })
 
-    const copyImport = (icon: feather.Icon) => {
+    const copyImport = (icon: Icon) => {
       copyToClipboard(`import { ${icon.name} } from "@vue-icons/feather"\n`)
     }
 

@@ -11,16 +11,6 @@
           v-model="size"
         />
       </inline-input>
-      <inline-input id="stroke-width" label="Stroke Width" class="m-1">
-        <input
-          type="range"
-          class="form-range"
-          min="0.5"
-          step="0.5"
-          max="3"
-          v-model="strokeWidth"
-        />
-      </inline-input>
       <inline-input id="color" label="Color" class="m-1">
         <button
           type="button"
@@ -34,12 +24,6 @@
     </div>
     <div class="col-2">
       <input class="form-control m-1" type="text" :value="size" readonly />
-      <input
-        class="form-control m-1"
-        type="text"
-        :value="strokeWidth"
-        readonly
-      />
       <input class="form-control m-1" type="text" :value="color" readonly />
     </div>
   </div>
@@ -62,11 +46,6 @@ export default defineComponent({
     const size = computed({
       get: () => store.state.customize.size,
       set: (value) => store.commit("setCustomizeSize", value)
-    })
-
-    const strokeWidth = computed({
-      get: () => store.state.customize.strokeWidth,
-      set: (value) => store.commit("setCustomizeStrokeWidth", value)
     })
 
     const color = computed({
@@ -93,7 +72,6 @@ export default defineComponent({
     return {
       colors,
       size,
-      strokeWidth,
       color
     }
   }
