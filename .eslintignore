@@ -2,10 +2,13 @@
 templates/
 
 # Ignore generated icons
-packages/*/src
+packages/*/lib
 
 # Dependency directories
 node_modules/
 
 # Build
 dist
+
+# Logs
+*.log
