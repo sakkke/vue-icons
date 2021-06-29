@@ -1,5 +1,11 @@
 # @vue-icons/feather
 
+## 1.0.19
+
+### Patch Changes
+
+- 4d38342: fix(feather): force version bump
+
 ## 1.0.18
 
 ### Patch Changes
