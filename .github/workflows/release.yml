@@ -17,11 +17,7 @@ jobs:
           node-version: 14
 
       - run: yarn
-
-      - uses: changesets/action@master
-        with:
-          title: "chore: release packages"
-          commit: "chore: release packages"
+      - run: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
