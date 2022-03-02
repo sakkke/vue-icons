@@ -2,9 +2,9 @@ name: Test
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   lint:
@@ -25,4 +25,4 @@ jobs:
 
       - run: yarn
       - run: yarn lint
-      - run: yarn commitlint -f master
+      - run: yarn commitlint -f main
