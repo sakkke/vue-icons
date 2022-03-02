@@ -16,7 +16,10 @@
     "release": "yarn workspaces run semantic-release -e semantic-release-monorepo"
   },
   "release": {
-    "extends": "semantic-release-monorepo"
+    "extends": "semantic-release-monorepo",
+    "branches": [
+      "main"
+    ]
   },
   "lint-staged": {
     "*.{md,yml,scss}": "prettier --write",
